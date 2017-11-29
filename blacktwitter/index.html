@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>playground</title>
+    <!--Import jQuery before materialize.js-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Import Google Icons & Fonts-->
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Allerta Stencil' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Allura' rel='stylesheet'>
+
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/homepage.css" media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <style>
+        .parallax-container {
+            height: 800px;
+        }
+    </style>
+
+</head>
+<body>
+<main>
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-small yellow pulse disabled">
+            <i class="large material-icons ">code</i>
+        </a>
+        <ul>
+            <li><a target="_blank" href="https://www.linkedin.com/in/takeria-blunt-28aa77a7/" class="btn-floating blue fa fa-linkedin"></a></li>
+            <li><a target="_blank" href="https://www.youtube.com/channel/UCF0QqVwMQ7iLiAMlcUaC4TQ" class="btn-floating red darken-1 fa fa-youtube"></a></li>
+            <li><a target="_blank" href="https://www.youtube.com/channel/UCF0QqVwMQ7iLiAMlcUaC4TQ" class="btn-floating black darken-1 fa fa-github disabled"></a></li>
+
+        </ul>
+    </div>
+    <div class="navbar-fixed">
+
+        <nav class="nav-extended white ">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo black-text"><img  style="height:55px; width:60px" src="images/blcktwitt.png">The Black Twitter Social Experiment</a>
+                <div class="nav-content right">
+                    <ul class="tabs tabs-transparent">
+                        <li class="tab"><a class="active black-text"  href="index.html">Home</a></li>
+                        <li class="tab"><a class="black-text" onclick="research()" href="/research.html">Research</a></li>
+                        <li class="tab"><a  class="black-text " href="#test2">Data</a></li>
+                        <li class="tab "><a class="black-text " href="#test3">Results</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="test1" class="col s12">
+
+        </div>
+        <div id="test2" class="col s12">Test 2</div>
+        <div id="test3" class="col s12">Test 3</div>
+        <div id="" class="col s12">
+
+        </div>
+        <div id="test5" class="col s12">Test 5</div>
+        <div id="test6" class="col s12">Test 5</div>
+    </div>
+    <div class="row">
+        <div class="parallax-container ">
+            <div class="parallax">
+                <img src="https://images.pexels.com/photos/2255/black-and-white-city-houses-skyline.jpg?w=1260&h=750&auto=compress&cs=tinysrgb">
+            </div>
+            <div class="row">
+                <div class="col s4 offset-s2">
+                    <div class="z-depth-3 card-panel black">
+          <span class="white-text">The idea of free expression on social media is extremely pivotal particularly for African-Americans whose voices are often silenced. A popular platform is Black Twitter. Given the results of the past presidential election, conversation has sparked across all media platforms. The 2017 Academy Awards provide an opportunity to gather and analyze a large number of tweets that would be potentially political and or controversial. Using the Jupyter notebook platform, we can better visualize the data leveraging various API libraries exist such as pandas, plot.ly, json and Django framework. Plot.ly allows us to compare the highly used hashtags and keywords for the Oscars 2016 and 2017 through two separate interactive U.S. maps.  These geographical locations provide insights into how a user’s location can correlate to the social context of their tweets 
+
+          </span>
+                    </div>
+                </div>
+                <div class="col s4">
+                    <div class="card large black">
+                        <div class="card-image">
+                            <img src="images/osc_2016_cloud.png">
+
+                        </div>
+                        <div class="  card-content white-text">
+                            <p>The Oscars awards is often a controversial event year after year. The show is laced with
+                            political irony and underlying issues existing in the U.S., and we collected interesting data
+                            to visualize</p>
+                        </div>
+                        <div class="card-tabs">
+                            <ul class="tabs tabs-fixed-width">
+                                <li class="tab"><a class="active blue-grey-text" href="#test7">2016</a></li>
+                                <li class="tab"><a  class="blue-grey-text" href="#test8">2017</a></li>
+                                <li class="tab"><a class="blue-grey-text" href="#test9">2018</a></li>
+                            </ul>
+                        </div>
+                        <div class="card-content grey lighten-4">
+                            <div id="test7">For the 2016 Oscars awards, our focus was to gather twitter data using Twitter's Tweepy
+                            API and Python. We streamed tweets during the awards based on current hashtags such as #OscarsSoWhite</div>
+                            <div id="test8">In 2017, it was time to collect more tweets and formulate a comparison between how
+                            those existing within the realm of Black Twitter felt about the show in the previous year. We generated
+                            word clouds to show the comparison using the Python coding language. </div>
+                            <div id="test9">This upcoming research day we would like to make our research interactive by
+                            providing a tool that students & faculty can use to generate their own clouds and to visualize
+                            the tweets</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+        </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="parallax-container">
+            <div class="parallax">
+                <img src="https://images.pexels.com/photos/283934/pexels-photo-283934.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb">
+            </div>
+            <div class="row">
+                <div class="col s4">
+                    <div class="z-depth-3 card-panel white">
+          <span class="black-text">Our Playground is an interactive map that allows users to play around with the contents of tweets.
+              It combines all of the programs that were written using Python and JavaScript to leverage functions for activitiy and
+              analysis.
+                <br>
+                <br>
+              Features <br>
+              ----------- <br>
+              - Create word clouds based on a collection of tweets <br>
+              - Visualize what tweets came from specific locations within the U.S. <br>
+              - Group words based on similarity and proximity (meaning) <br>
+              - Steam tweets based on specific key words <br>
+              - Save various clouds and streams for future use <br>
+
+
+               
+
+          </span>
+                    </div>
+                </div>
+                <div class="col s4 offset-s2">
+                    <div class="playButton">
+                        <p>Enter the Playground</p>
+                        <a href="playground.html" class="yellow z-depth-0 waves-effect waves-light btn-large"><i class="material-icons left">play_circle_filled</i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--
+    <div class="row">
+        <div class="parallax-container">
+            <div class="paralllax">
+                <img src="https://images.pexels.com/photos/34088/pexels-photo.jpg?w=940&h=650&auto=compress&cs=tinysrgb">
+                </div>
+                <div class="row">
+                    <div class="col s4">
+                        <div class="card medium">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="images/tayloir.png">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">Student Researcher<i class="material-icons right">more_vert</i></span>
+                                <p><a href="#">Click above to learn more</a></p>
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">Tayloir Thompson<i class="material-icons right">close</i></span>
+                                <p>Tayloir Thompson is a Senior Computer Science and Co-Research Assistant on the
+                                    Black Twitter from 2015-Present. (insert more facts)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col s4">
+                        <div class="card medium">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="images/TakeriaBlunt.jpg">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">Student Researcher<i class="material-icons right">more_vert</i></span>
+                                <p><a href="#">Click above to learn more</a></p>
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">Takeria Blunt<i class="material-icons right">close</i></span>
+                                <p>Takeria Blunt is a Senior Computer Science and Co-Research Assistant on the
+                                    Black Twitter from 2015-2016. (insert more facts)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+-->
+
+
+
+</main>
+
+<!-- footer with logo -->
+<footer class="page-footer white">
+
+    <div class="footer-copyright">
+        <div class="container center-align ">
+            <p style="color: black ">&#9400; Spelman College Black Twitter Research Team 2017</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    $(document).ready(function(){
+        (function($){
+            $(function(){
+                $('.parallax').parallax();
+                $('.modal').modal();
+                $('.slider').slider();
+                $('.collapsible').collapsible();
+                $('.carousel').carousel();
+                $('.grid').masonry({
+                    // options
+                    itemSelector: '.grid-item',
+                    columnWidth: '.grid-item'
+                });
+
+            });
+        })(jQuery);
+    });
+    function closeResume(){
+        $('#resumemodal').modal('close', 0)
+    }
+    function research(){
+        //location.href="#photography";
+        window.location.href = "./research.html";
+    }
+</script>
+</body>
+
+</html>

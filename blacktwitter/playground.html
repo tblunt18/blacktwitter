@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Playground</title>
+    <link type="text/css" rel="stylesheet" href="css/homepage.css" />
+    <!--Stamen Toner Map -->
+    <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
+    <!--Import jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection"/>
+    <script type="text/javascript" src="js/materialize.js"></script>
+
+    <!--Carto DB Map-->
+    <!--
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.11/themes/css/cartodb.css" />
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
+    <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+    -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- leaflet -->
+    <link type="text/css" rel="stylesheet" href="leaflet/leaflet.css" />
+    <link type="text/css" rel="stylesheet" href="leaflet/Leaflet.NavBar.css" />
+    <script src="leaflet/leaflet.js"></script>
+    <script src="leaflet/Leaflet.NavBar.js"></script>
+
+    <style>
+        html, body, main, #map{
+            height: 98%;
+            width: 100%;
+
+        }
+        #map {
+
+            z-index: 0;
+            position: relative;
+        }
+        .map-overlay{
+            position: absolute;
+            top: 0px;
+            /*bottom: 450px;*/
+            right: 9px;
+            width: 250px;
+            background: rgba(255, 255, 255, 0.8);
+            /*margin-right: 20px;*/
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            overflow: auto;
+            border-radius: 3px;
+            z-index:2 !important;
+
+        }
+        .parallax-container{
+            height: 500px;
+
+        }
+    </style>
+</head>
+<body>
+
+    <div class="">
+        <ul class=" collapsible map-overlay"  style="width:350px; ">
+            <li>
+                <div class="collapsible-header"><i class="medium material-icons">arrow_drop_down</i>Tweet Info (Click Tweet)</div>
+                <div class="collapsible-body  " style="font-size: 17px;width:450px; " ><span>
+                        <div id="pd">
+                            <p></p>
+                        </div>
+
+                        </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="z-depth-3" id="map" >
+
+    </div>
+
+    <div class="row">
+        <div class="parallax-container">
+            <div class="parallax">
+                <img src="https://images.pexels.com/photos/531767/pexels-photo-531767.jpeg?w=940&h=650&auto=compress&cs=tinysrgb">
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--<div class="map-overlay" style="border:2px solid; opacity:.95; background:#dbd7d7; margin-top:-120px; display:none;">
+    </div> -->
+
+    <!--Initialize the map and overlays with JS (main two JS libraries are leaflet and jquery -->
+    <script>
+        $(document).ready(function(){
+            $('.collapsible').collapsible();
+            $('.parallax').parallax();
+        });
+        /*
+        var map = L.map('map').setView([37.6, 37.6 -95.665], 16);
+        L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+            attribution: 'Positron'
+        }).addTo(map);
+        map.once('focus',function(){
+            map.scrollWheelZoom.disable();
+        });
+        map.on('click',function(){
+            if (map.scrollWheelZoom.enabled()) {
+                map.scrollWheelZoom.disable();
+            }
+            else {
+                map.scrollWheelZoom.enable();
+            }
+        });
+        */
+        var map = L.map('map').setView([37.6, -95.665],-200);
+        // load a tile layer
+        L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.{ext}', {
+            maxZoom: 6,
+            subdomains: 'abcd',
+            minZoom: 4,
+            ext: 'png'
+
+        }).addTo(map);
+        //layer groups
+        var unitedStates = L.layerGroup();
+        var usFeature;
+        var tweetsLayer = L.layerGroup();
+        var tweetsFeature;
+        var count = 0;
+
+        //hover and highlight features
+        function highlightFeature(e) {
+            var layer = e.target;
+            //info.update(layer.feature.properties);
+        }
+        function zoomToFeature(e) {
+            map.fitBounds(e.target.getBounds());
+        }
+        function usResethighlight(e) {
+            usFeature.resetStyle(e.target);
+            //info.update();
+        }
+        function usOnEachFeature(feature, layer) {
+            layer.on({
+                mouseover: highlightFeature,
+                mouseout: usResethighlight,
+                /*click: zoomToFeature*/
+            });
+        }
+        function randomLocations(){
+            locationArray = [];
+            var r = 10 // = 100 meters
+
+                , y0 = 33.7490  //lat these are atlanta's coordinates 84.3880
+                , x0 = -84.3880 //long 33.7490
+                , u = Math.random()
+                , v = Math.random()
+                , w = r * Math.sqrt(u)
+                , t = 2 * Math.PI * v
+                , x = w * Math.cos(t)
+                , y1 = w * Math.sin(t)
+                , x1 = x / Math.cos(y0);
+
+            newY = y0 + y1;
+            newX = x0 + x1;
+            locationArray[0] = newY;
+            locationArray[1] = newX;
+            return locationArray;
+        }
+        //*****************************************************************************
+        //LOAD GEOJSON DATA FOR ALL DATASETS                                                                                       *
+        //*****************************************************************************
+        //loading united states geojson file
+        $.getJSON("geojson/gz_2010_us_040_00_20m.geojson", function(data){
+            usFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature
+            });
+            usFeature.addTo(unitedStates);
+        });
+        map.addLayer(unitedStates);
+
+        // zoom options for map
+        //map.once('focus', function() { map.scrollWheelZoom.enable(); });
+        map.on('click', function() {
+            if (map.scrollWheelZoom.enabled()) {
+                map.scrollWheelZoom.disable();
+            }
+            else {
+                map.scrollWheelZoom.enable();
+            }
+        });
+        /*
+        $.getJSON("json/threeHundredTweets.json", function(data){
+            tweets = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature
+            });
+            usFeature.addTo(unitedStates);
+        });
+        map.addLayer(unitedStates);
+        */
+        function placeTweets(){
+            //var lati = latlong[1];
+            //var long = latlong[0];
+            var tweets = $.getJSON("json/threeHundredTweets.json");
+            //var tweets = JSON.parse("json/threeHundredTweets.json");
+            for (var i in tweets){
+                var latlong = randomLocations();
+                var latlng = L.latLng(latlong);
+                mark =  L.circleMarker(latlng, {
+                    fillColor: "red",
+                    color: "blue",
+                    weight:.75,
+                    radius: 5,
+                    fillOpacity:1,
+                });
+                mark.addTo(tweetsLayer);
+                console.log(i);
+            }
+            map.addLayer(tweetsLayer);
+            /*
+             var tweets = $.getJSON("geojson/tweets_.geojson");
+             for (var i in tweets){
+             var latlong = randomLocations();
+             var latlng = L.latLng(latlong);
+             mark =  L.circleMarker(latlng, {
+             fillColor: "red",
+             color: "blue",
+             weight:.75,
+             radius: 5,
+             fillOpacity:1,
+             });
+             mark.addTo(tweetsLayer);
+             console.log(i);
+             }
+             map.addLayer(tweetsLayer);
+             */
+        }
+        // listener that zooms to the zipcode
+        function zoomToFeature(e) {
+            map.fitBounds(e.target.getBounds());
+        }
+        // Trigger to call functions on different events for Economics
+        function tweetOnEachFeature(feature, layer) {
+            layer.on({
+
+                click: zoomToFeature
+            });
+        }
+        function fillNullLatLng(){
+            var allTweets = $.getJSON("geojson/tweets_.geojson");
+            for(var i in allTweets){
+                if (feature.properties.tweet.coordinates_1 == ""){}
+
+            }
+
+        }
+        //placeTweets();
+        function tweetsToMap(){
+            $.getJSON("geojson/tweets1.geojson", function(data) {
+                L.geoJSON(data, {
+                    pointToLayer: function (feature, latlng) {
+                        console.log("making markers");
+
+                        if (jQuery.isEmptyObject(latlng)){
+                            console.log("Unsuccessful lat lng");
+                            feature.setLatLng(L.LatLng(-84.3880, 33.7490));
+
+                        }
+                        else{
+                            /*console.log("Null lat lng");
+                            var latlong = (0,0);
+                            L.latLng(latlong);
+                            */
+
+                            mark =  L.circleMarker(latlng, {
+                                fillColor: "yellow",
+                                color: "black",
+                                weight:.75,
+                                radius: 5,
+                                fillOpacity:1
+                            });
+                            count = count + 1;
+                            return mark.addTo(tweetsLayer);
+
+                        }
+
+                    },
+                    onEachFeature: function onEachFeature(feature, layer) {
+                        layer.on('click', function (e) {
+                            $('.collapsible').collapsible('close', 0);
+                            //reset these layers
+                            $("#overlay-header").html("");
+                            $("#pd").html("");
+                            var disp=document.getElementsByClassName("map-overlay");
+                            disp[0].style.maxHeight="660px";
+                            disp[0].style.display="";
+                            var inf=document.getElementById("pd");
+                            //inf.style.padding="10px";
+                            //display information in display box
+                            $('#pd').append("<p ><b>Tweet: </b>" + e.target.feature.properties.tweet + "</p>");
+                            $('#pd').append("<p ><b>HashTags: </b>" + e.target.feature.properties.hashtags + "</p>");
+                            $('#pd').append("<p ><b>Location: </b>" + e.target.feature.properties.location_full + "</p>");
+                            $('.collapsible').collapsible('open', 0);
+                        });
+                    }
+                    //tweetsFeature.addTo(tweetsLayer);
+                }).addTo(tweetsLayer);
+                map.addLayer(tweetsLayer);
+                console.log("Count: " + count);
+
+            });
+        }
+
+        tweetsToMap();
+
+    </script>
+</body>
+</html>
