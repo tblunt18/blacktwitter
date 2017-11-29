@@ -125,16 +125,113 @@
        //layer groups
         var tweetsLayer = L.layerGroup();
         var unitedStates = L.layerGroup();
-        var florida = L.layerGroup();
-        var alabama = L.layerGroup();
-        var georgia = L.layerGroup();
-        var mississippi = L.layerGroup();
+        var florida = L.layerGroup(); //fl
+        var alabama = L.layerGroup(); //al
+        var georgia = L.layerGroup(); //ga
+        var mississippi = L.layerGroup(); //ms
+        var arkansas = L.layerGroup(); //ar
+        var arizona = L.layerGroup(); //az
+        var alaska = L.layerGroup(); //ak
+        var cali = L.layerGroup(); //ca
+        var colordado = L.layerGroup(); //co
+        var connecticut = L.layerGroup(); //ct
+        var wDC = L.layerGroup(); //dc
+        var deleware = L.layerGroup(); //de
+        var hawaii = L.layerGroup(); //hi
+        var iowa = L.layerGroup(); //ia
+        var idaho = L.layerGroup(); //id
+        var illinois = L.layerGroup(); //il
+        var indiana = L.layerGroup(); // in
+        var kansas = L.layerGroup(); //ks
+        var kentucky = L.layerGroup(); //ky
+        var louisiana = L.layerGroup(); //la
+        var massachusetts = L.layerGroup(); //ma
+        var maryland = L.layerGroup(); //md
+        var maine = L.layerGroup(); //me
+        var michigan = L.layerGroup(); //mi
+        var minnesota = L.layerGroup();//mn
+        var missouri = L.layerGroup(); //mo
+        var montana = L.layerGroup(); //mt
+        var northcarolina = L.layerGroup(); //nc
+        var northdakota = L.layerGroup(); //nd
+        var nebraska = L.layerGroup(); //ne
+        var newhamp = L.layerGroup(); //nh
+        var newjersey = L.layerGroup(); //nj
+        var newmexico = L.layerGroup(); //nm
+        var nevada = L.layerGroup(); //nv
+        var newyork = L.layerGroup(); //ny
+        var ohio = L.layerGroup(); //oh
+        var oklahoma = L.layerGroup(); //ok
+        var oregon = L.layerGroup(); //or
+        var pennsylvania = L.layerGroup();//pa
+        var puertorico = L.layerGroup(); //pr
+        var rhodeisland = L.layerGroup(); //ri
+        var southcarolina = L.layerGroup(); //sc
+        var southdakota =  L.layerGroup(); //sd
+        var tennessee = L.layerGroup(); //tn
+        var texas = L.layerGroup(); //tx
+        var utah = L.layerGroup(); //ut
+        var virginia = L.layerGroup(); //va
+        var vermont = L.layerGroup(); //vt
+        var washington = L.layerGroup(); //wa
+        var wisconsin = L.layerGroup(); //wi
+        var westvirginia = L.layerGroup(); //wv
+        var wyoming = L.layerGroup(); //wy
+
         var usFeature;
         var flFeature;
         var gaFeature;
         var alFeature;
         var msFeature;
         var tweetsFeature;
+        var arFeature;
+        var azFeature;
+        var akFeature;
+        var caFeature;
+        var coFeature;
+        var ctFeature;
+        var DCFeature;
+        var deFeature;
+        var hiFeature;
+        var iaFeature;
+        var idFeature;
+        var ilFeature;
+        var inFeature;
+        var ksFeature;
+        var kyFeature;
+        var laFeature;
+        var maFeature;
+        var mdFeature;
+        var meFeature;
+        var miFeature;
+        var mnFeature;
+        var moFeature;
+        var mtFeature;
+        var ncFeature;
+        var ndFeature;
+        var neFeature;
+        var nhFeature;
+        var njFeature;
+        var nmFeature;
+        var nvFeature;
+        var nyFeature;
+        var ohFeature;
+        var okFeature;
+        var orFeature;
+        var paFeature;
+        var prFeature;
+        var riFeature;
+        var scFeature;
+        var sdFeature;
+        var tnFeature;
+        var txFeature;
+        var utFeature;
+        var vaFeature;
+        var vtFeature;
+        var waFeature;
+        var wiFeature;
+        var wvFeature;
+        var wyFeature;
         var count = 0;
         
         //get a random color for the polygon of each state
@@ -191,6 +288,7 @@
         //LOAD GEOJSON DATA FOR ALL DATASETS                                                                                       *
         //*****************************************************************************
         //loading united states geojson file
+        /*
         $.getJSON("geojson/gz_2010_us_040_00_20m.geojson", function(data){
             usFeature = L.geoJSON(data, {
                 onEachFeature: usOnEachFeature
@@ -198,7 +296,7 @@
             usFeature.addTo(unitedStates);
         });
         map.addLayer(unitedStates);
-        
+        */
         //loading florida geojson file
         $.getJSON("geojson/FL.geojson", function(data){
             flFeature = L.geoJSON(data, {
@@ -238,6 +336,496 @@
             msFeature.addTo(mississippi);
         });
         map.addLayer(mississippi);
+
+        //loading alaska geojson file
+        $.getJSON("geojson/AK.geojson", function(data){
+            akFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            akFeature.addTo(alaska);
+        });
+        map.addLayer(alaska);
+
+        //loading arizona geojson file
+        $.getJSON("geojson/AZ.geojson", function(data){
+            azFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            azFeature.addTo(arizona);
+        });
+        map.addLayer(arizona);
+
+        //loading arkansas geojson file
+        $.getJSON("geojson/AR.geojson", function(data){
+            arFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            arFeature.addTo(arkansas);
+        });
+        map.addLayer(arkansas);
+
+        //loading cali geojson file
+        $.getJSON("geojson/CA.geojson", function(data){
+            caFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            caFeature.addTo(cali);
+        });
+        map.addLayer(cali);
+
+        //loading colorado geojson file
+        $.getJSON("geojson/CO.geojson", function(data){
+            coFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            coFeature.addTo(colordado);
+        });
+        map.addLayer(colordado);
+
+        //loading connecticut geojson file
+        $.getJSON("geojson/CT.geojson", function(data){
+            ctFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            ctFeature.addTo(connecticut);
+        });
+        map.addLayer(connecticut);
+
+        //loading DC geojson file
+        $.getJSON("geojson/DC.geojson", function(data){
+            DCFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            DCFeature.addTo(wDC);
+        });
+        map.addLayer(wDC);
+
+        //loading cali geojson file
+        $.getJSON("geojson/CA.geojson", function(data){
+            caFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            caFeature.addTo(cali);
+        });
+        map.addLayer(cali);
+
+        //loading delaware geojson file
+        $.getJSON("geojson/DE.geojson", function(data){
+            deFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            deFeature.addTo(deleware);
+        });
+        map.addLayer(deleware);
+
+        //loading hawaii geojson file
+        $.getJSON("geojson/HI.geojson", function(data){
+            hiFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            hiFeature.addTo(hawaii);
+        });
+        map.addLayer(hawaii);
+
+        //loading iowa geojson file
+        $.getJSON("geojson/IA.geojson", function(data){
+            iaFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            iaFeature.addTo(iowa);
+        });
+        map.addLayer(iowa);
+
+        //loading idaho geojson file
+        $.getJSON("geojson/ID.geojson", function(data){
+            idFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            idFeature.addTo(idaho);
+        });
+        map.addLayer(idaho);
+
+        //loading illinois geojson file
+        $.getJSON("geojson/IL.geojson", function(data){
+            ilFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            ilFeature.addTo(illinois);
+        });
+        map.addLayer(illinois);
+
+        //loading indiana geojson file
+        $.getJSON("geojson/IN.geojson", function(data){
+            inFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            inFeature.addTo(indiana);
+        });
+        map.addLayer(indiana);
+
+        //loading kansas geojson file
+        $.getJSON("geojson/KS.geojson", function(data){
+            ksFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            ksFeature.addTo(kansas);
+        });
+        map.addLayer(kansas);
+
+        //loading kentucky geojson file
+        $.getJSON("geojson/KY.geojson", function(data){
+            kyFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            kyFeature.addTo(kentucky);
+        });
+        map.addLayer(kentucky);
+
+        //loading louisiana geojson file
+        $.getJSON("geojson/LA.geojson", function(data){
+            laFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            laFeature.addTo(louisiana);
+        });
+        map.addLayer(louisiana);
+
+        //loading massachusetts geojson file
+        $.getJSON("geojson/MA.geojson", function(data){
+            maFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            maFeature.addTo(massachusetts);
+        });
+        map.addLayer(massachusetts);
+
+        //loading maryland geojson file
+        $.getJSON("geojson/MD.geojson", function(data){
+            mdFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            mdFeature.addTo(maryland);
+        });
+        map.addLayer(maryland);
+
+        //loading maine geojson file
+        $.getJSON("geojson/ME.geojson", function(data){
+            meFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            meFeature.addTo(maine);
+        });
+        map.addLayer(maine);
+
+        //loading michigan geojson file
+        $.getJSON("geojson/MI.geojson", function(data){
+            miFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            miFeature.addTo(michigan);
+        });
+        map.addLayer(michigan);
+
+        //loading minnesota geojson file
+        $.getJSON("geojson/MN.geojson", function(data){
+            mnFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            mnFeature.addTo(minnesota);
+        });
+        map.addLayer(minnesota);
+
+        //loading missouri geojson file
+        $.getJSON("geojson/MO.geojson", function(data){
+            caFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            caFeature.addTo(missouri);
+        });
+        map.addLayer(missouri);
+
+        //loading montana geojson file
+        $.getJSON("geojson/MT.geojson", function(data){
+            mtFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            mtFeature.addTo(montana);
+        });
+        map.addLayer(montana);
+
+        //loading north carolina geojson file
+        $.getJSON("geojson/NC.geojson", function(data){
+            ncFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            ncFeature.addTo(northcarolina);
+        });
+        map.addLayer(northcarolina);
+
+        //loading northdakota geojson file
+        $.getJSON("geojson/ND.geojson", function(data){
+            ndFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            ndFeature.addTo(northdakota);
+        });
+        map.addLayer(northdakota);
+
+        //loading nebraska geojson file
+        $.getJSON("geojson/NE.geojson", function(data){
+            neFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            neFeature.addTo(nebraska);
+        });
+        map.addLayer(nebraska);
+
+        //loading newhampshire geojson file
+        $.getJSON("geojson/NH.geojson", function(data){
+            nhFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            nhFeature.addTo(newhamp);
+        });
+        map.addLayer(newhamp);
+
+        //loading new jersey geojson file
+        $.getJSON("geojson/NJ.geojson", function(data){
+            njFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            njFeature.addTo(newjersey);
+        });
+        map.addLayer(newjersey);
+
+        //loading new mexico geojson file
+        $.getJSON("geojson/NM.geojson", function(data){
+            nmFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            nmFeature.addTo(newmexico);
+        });
+        map.addLayer(newmexico);
+
+        //loading nevada geojson file
+        $.getJSON("geojson/NV.geojson", function(data){
+            nvFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            nvFeature.addTo(nevada);
+        });
+        map.addLayer(nevada);
+
+        //loading newyork geojson file
+        $.getJSON("geojson/NY.geojson", function(data){
+            nyFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            nyFeature.addTo(newyork);
+        });
+        map.addLayer(newyork);
+
+        //loading ohio geojson file
+        $.getJSON("geojson/OH.geojson", function(data){
+            ohFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            ohFeature.addTo(ohio);
+        });
+        map.addLayer(ohio);
+
+        //loading oklahoma geojson file
+        $.getJSON("geojson/OK.geojson", function(data){
+            okFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            okFeature.addTo(oklahoma);
+        });
+        map.addLayer(oklahoma);
+
+        //loading oregon geojson file
+        $.getJSON("geojson/OR.geojson", function(data){
+            orFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            orFeature.addTo(oregon);
+        });
+        map.addLayer(oregon);
+
+        //loading pennsylvania geojson file
+        $.getJSON("geojson/PA.geojson", function(data){
+            paFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            paFeature.addTo(pennsylvania);
+        });
+        map.addLayer(pennsylvania);
+
+        //loading puerto rico geojson file
+        $.getJSON("geojson/PR.geojson", function(data){
+            prFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            prFeature.addTo(puertorico);
+        });
+        map.addLayer(puertorico);
+
+        //loading rhode island geojson file
+        $.getJSON("geojson/RI.geojson", function(data){
+            riFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            riFeature.addTo(rhodeisland);
+        });
+        map.addLayer(rhodeisland);
+
+        //loading south carolina geojson file
+        $.getJSON("geojson/SC.geojson", function(data){
+            scFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            scFeature.addTo(southcarolina);
+        });
+        map.addLayer(southcarolina);
+
+        //loading south dakota geojson file
+        $.getJSON("geojson/SD.geojson", function(data){
+            sdFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            sdFeature.addTo(southdakota);
+        });
+        map.addLayer(southdakota);
+
+        //loading tennessee geojson file
+        $.getJSON("geojson/TN.geojson", function(data){
+            tnFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            tnFeature.addTo(tennessee);
+        });
+        map.addLayer(tennessee);
+
+        //loading texas geojson file
+        $.getJSON("geojson/TX.geojson", function(data){
+            txFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            txFeature.addTo(texas);
+        });
+        map.addLayer(texas);
+
+        //loading utah geojson file
+        $.getJSON("geojson/UT.geojson", function(data){
+            utFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            utFeature.addTo(utah);
+        });
+        map.addLayer(utah);
+
+        //loading virginia geojson file
+        $.getJSON("geojson/VA.geojson", function(data){
+            vaFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            vaFeature.addTo(virginia);
+        });
+        map.addLayer(virginia);
+
+        //loading vermont geojson file
+        $.getJSON("geojson/VT.geojson", function(data){
+            vtFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            vtFeature.addTo(vermont);
+        });
+        map.addLayer(vermont);
+
+        //loading washington geojson file
+        $.getJSON("geojson/WA.geojson", function(data){
+            waFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            waFeature.addTo(washington);
+        });
+        map.addLayer(washington);
+
+        //loading wisconsin geojson file
+        $.getJSON("geojson/WI.geojson", function(data){
+            wiFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            wiFeature.addTo(wisconsin);
+        });
+        map.addLayer(wisconsin);
+
+        //loading west virginia geojson file
+        $.getJSON("geojson/WV.geojson", function(data){
+            wvFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            wvFeature.addTo(westvirginia);
+        });
+        map.addLayer(westvirginia);
+
+        //loading wyoming geojson file
+        $.getJSON("geojson/WY.geojson", function(data){
+            wyFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            wyFeature.addTo(wyoming);
+        });
+        map.addLayer(wyoming);
 
         // zoom options for map
         //map.once('focus', function() { map.scrollWheelZoom.enable(); });
