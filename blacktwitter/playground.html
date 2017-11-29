@@ -122,12 +122,31 @@
             ext: 'png'
 
         }).addTo(map);
-        //layer groups
-        var unitedStates = L.layerGroup();
-        var usFeature;
+       //layer groups
         var tweetsLayer = L.layerGroup();
+        var unitedStates = L.layerGroup();
+        var florida = L.layerGroup();
+        var alabama = L.layerGroup();
+        var georgia = L.layerGroup();
+        var mississippi = L.layerGroup();
+        var usFeature;
+        var flFeature;
+        var gaFeature;
+        var alFeature;
+        var msFeature;
         var tweetsFeature;
         var count = 0;
+        
+        //get a random color for the polygon of each state
+        function randColor(){
+            var color;
+            var r = Math.floor(Math.random() * 255);
+            var g = Math.floor(Math.random() * 255);
+            var b = Math.floor(Math.random() * 255);
+            color= "rgb("+r+" ,"+g+","+ b+")";
+
+            return color;
+        }
 
         //hover and highlight features
         function highlightFeature(e) {
@@ -179,6 +198,46 @@
             usFeature.addTo(unitedStates);
         });
         map.addLayer(unitedStates);
+        
+        //loading florida geojson file
+        $.getJSON("geojson/FL.geojson", function(data){
+            flFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            flFeature.addTo(florida);
+        });
+        map.addLayer(florida);
+
+        //loading alabama geojson file
+        $.getJSON("geojson/AL.geojson", function(data){
+            alFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            alFeature.addTo(alabama);
+        });
+        map.addLayer(alabama);
+
+        //loading georgia geojson file
+        $.getJSON("geojson/GA.geojson", function(data){
+            gaFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            gaFeature.addTo(georgia);
+        });
+        map.addLayer(georgia);
+
+        //loading mississippi geojson file
+        $.getJSON("geojson/MS.geojson", function(data){
+            msFeature = L.geoJSON(data, {
+                onEachFeature: usOnEachFeature,
+                color: randColor()
+            });
+            msFeature.addTo(mississippi);
+        });
+        map.addLayer(mississippi);
 
         // zoom options for map
         //map.once('focus', function() { map.scrollWheelZoom.enable(); });
