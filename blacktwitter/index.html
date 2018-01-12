@@ -23,13 +23,18 @@
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <style>
         .parallax-container {
-            height: 800px;
+            height: 700px;
         }
+        .text{
+            font-family:Calibri,Futura, sans-serif;
+        }
+
     </style>
 
 </head>
 <body>
 <main>
+    <!--
     <div class="fixed-action-btn">
         <a class="btn-floating btn-small yellow pulse disabled">
             <i class="large material-icons ">code</i>
@@ -41,17 +46,18 @@
 
         </ul>
     </div>
+    -->
     <div class="navbar-fixed">
 
-        <nav class="nav-extended white ">
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo black-text"><img  style="height:55px; width:60px" src="images/blcktwitt.png">The Black Twitter Social Experiment</a>
-                <div class="nav-content right">
-                    <ul class="tabs tabs-transparent">
-                        <li class="tab"><a class="active black-text"  href="index.html">Home</a></li>
+        <nav class="nav-extended  " style="background-color:lightpink">
+            <div class="nav-wrapper " >
+                <a href="#" class="brand-logo black-text center"><img  style="height:45px; width:80px" src="images/bt_l2.png"></a>
+                <div class="nav-content left">
+                    <ul class="tabs tabs-transparent text">
+                        <li class="tab"><a class="active black-text" onclick="home()"  href="index.html">HOME</a></li>
                         <li class="tab"><a class="black-text" onclick="research()" href="/research.html">Research</a></li>
                         <li class="tab"><a  class="black-text " href="#test2">Data</a></li>
-                        <li class="tab "><a class="black-text " href="#test3">Results</a></li>
+                        <li class="tab "><a class="black-text " href="#test3">About Us</a></li>
                     </ul>
                 </div>
             </div>
@@ -71,14 +77,25 @@
     <div class="row">
         <div class="parallax-container ">
             <div class="parallax">
-                <img src="https://images.pexels.com/photos/2255/black-and-white-city-houses-skyline.jpg?w=1260&h=750&auto=compress&cs=tinysrgb">
+                <img src="https://i.imgur.com/UBXHQCc.jpg" title="source: imgur.com" />
             </div>
+
             <div class="row">
+                <div style="position:relative;top:200px" class=" col s7 m5 l5 offset-s2 offset-m3 offset-l4">
+                    <img class="logo1" src="images/bt_l1.png">
+                    <h4 >Research at <span style="color:dodgerblue">Spelman College</span></h4>
+
+                </div>
+                <!--
                 <div class="col s4 offset-s2">
                     <div class="z-depth-3 card-panel black">
-          <span class="white-text">The idea of free expression on social media is extremely pivotal particularly for African-Americans whose voices are often silenced. A popular platform is Black Twitter. Given the results of the past presidential election, conversation has sparked across all media platforms. The 2017 Academy Awards provide an opportunity to gather and analyze a large number of tweets that would be potentially political and or controversial. Using the Jupyter notebook platform, we can better visualize the data leveraging various API libraries exist such as pandas, plot.ly, json and Django framework. Plot.ly allows us to compare the highly used hashtags and keywords for the Oscars 2016 and 2017 through two separate interactive U.S. maps.  These geographical locations provide insights into how a user’s location can correlate to the social context of their tweets 
-
-          </span>
+                      <span class="white-text">The idea of free expression on social media is extremely pivotal particularly for African-Americans whose voices are often silenced.
+                          A popular platform is Black Twitter. Given the results of the past presidential election, conversation has sparked across all media platforms. The 2017
+                          Academy Awards provide an opportunity to gather and analyze a large number of tweets that would be potentially political and or controversial.
+                          Using the Jupyter notebook platform, we can better visualize the data leveraging various API libraries exist such as pandas, plot.ly, json and Django
+                          framework. Plot.ly allows us to compare the highly used hashtags and keywords for the Oscars 2016 and 2017 through two separate interactive U.S. maps. 
+                          These geographical locations provide insights into how a user’s location can correlate to the social context of their tweets 
+                      </span>
                     </div>
                 </div>
                 <div class="col s4">
@@ -111,46 +128,34 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
-
+                -->
         </div>
     </div>
+
+    <div class="section white">
+        <div class="row container">
+            <h2 class="header">Black Twitter as a Powerful Platform</h2>
+            <p class="grey-text text-darken-3 lighten-3">The idea of free expression on social media is extremely pivotal particularly for African-Americans whose voices are often silenced.
+                A popular platform is Black Twitter - a social subculture existing within the Twitter platform. In the past few years, racial injustice has sparked vital social movements.
+                #BlackLivesMatter started within the realm of Black Twitter, further causing us to inquire about the usefulness of the platform. Could Twitter be used as a credible medium
+                to determine the sentiments, needs, and opinions of those existing in the Black community? What other social movements are potentially on the rise? These are questions that
+                we aim to explore in our research. We started gathering tweets related to the Oscars Awards in 2016 as an annual case study. Visit our <b>Research Page</b> for more info!
+                </p>
+        </div>
+    </div>
+
     </div>
     <div class="row">
         <div class="parallax-container">
             <div class="parallax">
-                <img src="https://images.pexels.com/photos/283934/pexels-photo-283934.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb">
+                <img class="blackwhite" src="https://images.pexels.com/photos/283934/pexels-photo-283934.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb">
             </div>
             <div class="row">
-                <div class="col s4">
-                    <div class="z-depth-3 card-panel white">
-          <span class="black-text">Our Playground is an interactive map that allows users to play around with the contents of tweets.
-              It combines all of the programs that were written using Python and JavaScript to leverage functions for activitiy and
-              analysis.
-                <br>
-                <br>
-              Features <br>
-              ----------- <br>
-              - Create word clouds based on a collection of tweets <br>
-              - Visualize what tweets came from specific locations within the U.S. <br>
-              - Group words based on similarity and proximity (meaning) <br>
-              - Steam tweets based on specific key words <br>
-              - Save various clouds and streams for future use <br>
-
-
-               
-
-          </span>
-                    </div>
+                <div style="position:relative;top:200px" class="col s7 m4 l4 offset-s1 offset-m1 offset-l1">
+                    <h4 class="white-text">Click Play Button to Enter Playground</h4>
                 </div>
-                <div class="col s4 offset-s2">
-                    <div class="playButton">
-                        <p>Enter the Playground</p>
-                        <a href="playground.html" class="yellow z-depth-0 waves-effect waves-light btn-large"><i class="material-icons left">play_circle_filled</i></a>
-                    </div>
+                <div style="position:relative;top:200px" class=" col s7 m4 l4  ">
+                    <a href="playground.html" class=" "><img class="playPicture" src="images/playbutton.png"></a>
                 </div>
             </div>
         </div>
@@ -240,6 +245,9 @@
     function research(){
         //location.href="#photography";
         window.location.href = "./research.html";
+    }
+    function home(){
+        window.location.href = "./index.html";
     }
 </script>
 </body>
