@@ -37,7 +37,7 @@
         }
         .map-overlay{
             position: absolute;
-            top: 0px;
+            top: 100px;
             /*bottom: 450px;*/
             right: 9px;
             width: 250px;
@@ -54,11 +54,43 @@
             height: 500px;
 
         }
+        body{
+            background-color: black;
+        }
     </style>
 </head>
 <body>
+<main>
+    <div class="navbar-fixed">
 
-    <div class="">
+        <nav class="nav-extended  " style="background-color:lightpink">
+            <div class="nav-wrapper " >
+                <a href="#" class="brand-logo black-text center"><img  style="height:45px; width:80px" src="images/bt_l2.png"></a>
+                <div class="nav-content left">
+                    <ul class="tabs tabs-transparent text">
+                        <li class="tab"><a class=" black-text" onclick="home()"  href="index.html">HOME</a></li>
+                        <li class="tab"><a class="black-text" onclick="research()" href="/research.html">Research</a></li>
+                        <li class="tab"><a  class="black-text " href="#test2">Data</a></li>
+                        <li class="tab "><a class="black-text " href="#test3">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="test1" class="col s12">
+
+        </div>
+        <div id="test2" class="col s12">Test 2</div>
+        <div id="test3" class="col s12">Test 3</div>
+        <div id="" class="col s12">
+
+        </div>
+        <div id="test5" class="col s12">Test 5</div>
+        <div id="test6" class="col s12">Test 5</div>
+    </div>
+
+
+    <div class="row">
         <ul class=" collapsible map-overlay"  style="width:350px; ">
             <li>
                 <div class="collapsible-header"><i class="medium material-icons">arrow_drop_down</i>Tweet Info (Click Tweet)</div>
@@ -122,7 +154,7 @@
             ext: 'png'
 
         }).addTo(map);
-       //layer groups
+        //layer groups
         var tweetsLayer = L.layerGroup();
         var unitedStates = L.layerGroup();
         var florida = L.layerGroup(); //fl
@@ -233,7 +265,15 @@
         var wvFeature;
         var wyFeature;
         var count = 0;
-        
+
+        function research(){
+            //location.href="#photography";
+            window.location.href = "./research.html";
+        }
+
+        function home(){
+            window.location.href = "./index.html";
+        }
         //get a random color for the polygon of each state
         function randColor(){
             var color;
@@ -852,8 +892,8 @@
             var tweets = $.getJSON("json/threeHundredTweets.json");
             //var tweets = JSON.parse("json/threeHundredTweets.json");
             for (var i in tweets){
-                var latlong = randomLocations();
-                var latlng = L.latLng(latlong);
+                //var latlong = randomLocations();
+                //var latlng = L.latLng(latlong);
                 mark =  L.circleMarker(latlng, {
                     fillColor: "red",
                     color: "blue",
@@ -962,5 +1002,6 @@
         tweetsToMap();
 
     </script>
+</main>
 </body>
 </html>
