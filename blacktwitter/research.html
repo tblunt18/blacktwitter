@@ -12,6 +12,7 @@
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Allerta Stencil' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Allura' rel='stylesheet'>
+    <link type="text/css" rel="stylesheet" href="css/research.css" media="screen,projection"/>
 
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection"/>
@@ -23,7 +24,15 @@
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <style>
         .parallax-container {
-            height: 700px;
+            height: 1000px;
+
+        }
+        .photos{
+            height:400px;
+            width:450px;
+        }
+        body{
+            background-color: black;
         }
     </style>
 
@@ -42,15 +51,15 @@
 </div>
 <div class="navbar-fixed">
 
-    <nav class="nav-extended white ">
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo black-text"><img  style="height:55px; width:60px" src="images/blcktwitt.png">The Black Twitter Social Experiment</a>
-            <div class="nav-content right">
-                <ul class="tabs tabs-transparent">
-                    <li class="tab"><a class="active black-text" href="index.html">Home</a></li>
-                    <li class="tab"><a class="black-text" href="research.html">Research</a></li>
+    <nav class="nav-extended  " style="background-color:lightpink">
+        <div class="nav-wrapper " >
+            <a href="#" class="brand-logo black-text center"><img  style="height:45px; width:80px" src="images/bt_l2.png"></a>
+            <div class="nav-content left">
+                <ul class="tabs tabs-transparent text">
+                    <li class="tab"><a class=" black-text" onclick="home()" href="index.html">Home</a></li>
+                    <li class="tab"><a class=" active black-text" onclick="research()" href="/research.html">Research</a></li>
                     <li class="tab"><a  class="black-text " href="#test2">Data</a></li>
-                    <li class="tab "><a class="black-text " href="#test3">Results</a></li>
+                    <li class="tab "><a class="black-text " href="#test3">About Us</a></li>
                 </ul>
             </div>
         </div>
@@ -67,16 +76,125 @@
     <div id="test5" class="col s12">Test 5</div>
     <div id="test6" class="col s12">Test 5</div>
 </div>
-<div class="row">
-    <div id="photography"  class="parallax-container" style="cursor:crosshair;overflow:scroll">
-        <div class="parallax">
-            <img src="https://images.pexels.com/photos/415018/pexels-photo-415018.png?w=1260&h=750&auto=compress&cs=tinysrgb">
-        </div>
-        <h3>Research Day 2016</h3>
 
+<div class="section black">
+    <div class="row container">
+        <h2 class="header white-text">The History</h2>
+        <p class="grey-text text-darken-3 lighten-3">The Black Twitter Research Team first presented at Spelman College's Research Day in the
+            Spring of 2016. We went on to continue our research initiative, and to present at the 2017 Research Day where our team won <b>First Place
+            for Computer Science!!</b> In the Spring of 2018, we will be presenting our research findings along with our tools, maps, and other features
+            on this site. Follow the timeline for details! <span class="white-text">* Click the posters for better viewing*</span>
+        </p>
     </div>
 </div>
 
+<div class="row">
+    <div class="col s12 m8 l8 ">
+        <div id="photography"  class="parallax-container" style="cursor:crosshair;overflow:scroll">
+            <div class="parallax">
+
+
+            </div>
+            <div style=" height:50px;width:300px;position:relative; left:600px">
+                <h6 class="pink-text">Hover over timeline and scroll to view extended timeline</h6>
+            </div>
+            <div class="timeline">
+                <div class="container2 left2">
+                    <div class="content white-text">
+                        <h2>2016</h2>
+                        <h6>"The Grammy's & Oscars According to #BlackTwitter"</h6>
+                        <p>Our first presentation at Research Day focused on showcasing how we collected our data. In short, we leveraged
+                        the Twitter API to grab or "stream" tweets into text files. We streamed tweets based on what are known as <b>Blacktags</b>
+                        within Black Twitter. Notable Blacktags from the 2016 Oscars Awards were #OscarsSoWhite and #chrisrock. </p>
+                        <p>We also streamed Tweets for the Grammys Awards to get an estimate for the most popular Blacktags tweets
+                        during the show.</p>
+
+                    </div>
+                </div>
+                <div class="container2 left2 ">
+                    <div class="content white black-text">
+
+                        <h6>Research Day </h6>
+                        <p>We detailed our process for collecting and sorting the collected tweets, and showed tables of the most popular Blacktags from
+                            our tweet files. We noted examples of "noise" tweets, as these were tweets that needed to be filtered out.
+                        <b>Result: 3rd Place for Computer Science!</b></p>
+                    </div>
+                </div>
+                <div class="container2 right2">
+                    <div class="content white-text">
+                        <h2>2017</h2>
+                        <h6>"An Analysis of Black Twitter through Word Clouds" - Takeria Blunt</h6>
+                        <p>Spelman College's Research Day now requires that teams present a poster for each person, so there are
+                            <b>two posters</b> for this year's research. The first presented by Takeria Blunt delves into making sense
+                        of the tweets that were collected in both the 2016 & 2017 Oscars Awards. Using Word Clouds and word frequency, the
+                        objective is to determine the collective opinion towards the topic.</p>
+                        <p>The Python coding language and associated libraries were used to create word clouds from tweet files,
+                        then a program was written in Python to determine if the highest frequency word was actually considered
+                        relevant. </p>
+                    </div>
+                </div>
+                <div class="container2 right2 ">
+                    <div class="content white black-text">
+                        <h6>Research Day </h6>
+                        <p>Takeria presented the various Word Clouds, which were grouped by year (2016 & 2017) and Language to represent
+                            the fact that members of Black Twitter are diverse, and that this poses a challenge when analyzing the meaning
+                            behind thousands of tweets.
+                            <b>Result: 1st Place for Computer Science!</b></p>
+                    </div>
+                </div>
+                <div class="container2 left2">
+                    <div class="content white-text">
+                        <h2>2017</h2>
+                        <h6>"Visualizing Black Twitter's Response to the Oscars Ceremonies" - Tayloir Thompson</h6>
+                        <p>The 2017 Academy Awards provide an opportunity to gather and analyze a large number of tweets that would be potentially
+                            political and or controversial. Using the Jupyter notebook platform, we can better visualize the data leveraging various
+                            API libraries existing such as pandas, plot.ly, json and Django framework. </p>
+                        <p>Plot.ly allows us to compare the highly used hashtags and keywords for the Oscars 2016 and 2017 through two separate interactive
+                            U.S. maps.  These geographical locations provide insights into how a user’s location can correlate to the social context of their tweets. 
+                        </p>
+
+                    </div>
+                </div>
+                <div class="container2 left2 ">
+                    <div class="content white black-text">
+
+                        <h6>Research Day </h6>
+                        <p>Tayloir presented two U.S. maps that visualized the hot spots of where Black Twitter members were tweeting from during
+                            the Oscars Awards. Comparing the 2016 Awards to the 2017 Awards was the focus, depicting differences in the locations
+                            and frequency of certain tweets.
+                            <b>Result: 1st Place for Computer Science!</b></p>
+                    </div>
+                </div>
+                <div class="container2 right2">
+                    <div class="content white-text">
+                        <h2>2018</h2>
+                        <h6>Stay tuned!</h6>
+                        <p>We'll present our tweet map and tweet analysis tools!</p>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="col s12 m4 l4">
+        <img class="photos materialboxed" src="images/researchday2.png"/>
+        <img class="photos materialboxed" src="images/researchday1.jpeg"/>
+        <img class="photos materialboxed" src="images/researchday3.png"/>
+
+
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 m4 l4">
+        <img style="height:500px; width:420px;" class=" materialboxed" src="images/researchday4.JPG"/>
+    </div>
+    <div class="col s12 m3 l3">
+        <img style="height:500px; width:320px;" class=" materialboxed" src="images/tayloir.png"/>
+    </div>
+</div>
 
 </main>
 <script>
@@ -103,6 +221,9 @@
     function research(){
         //location.href="#photography";
         window.location.href = "./research.html";
+    }
+    function home(){
+        window.location.href = "./index.html";
     }
 </script>
 </body>
